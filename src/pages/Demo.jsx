@@ -28,7 +28,7 @@ export const Demo = () => {
                   payload: { id: item.id, color: '#ffa500' }
                 })}>
                 Change Color
-              </button>
+              </button> 
             </li>
           );
         })}
