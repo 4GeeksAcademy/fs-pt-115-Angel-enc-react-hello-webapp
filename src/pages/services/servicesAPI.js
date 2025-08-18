@@ -1,7 +1,7 @@
 import { Navigate, useNavigate } from "react-router-dom";
 
 const BASE_URL = "https://playground.4geeks.com/contact/agendas";
-const AGENDA_SLUG = "Agenda-enc";
+const AGENDA_SLUG = "Angel-enc";
 
 export const getContactos = async () => {
   const response = await fetch(`${BASE_URL}/${AGENDA_SLUG}/contacts`);
@@ -14,7 +14,7 @@ export const getContactos = async () => {
   return Array.isArray(data.contacts) ? data.contacts : [];
 };
 
-export const crearContacto = async contactoData =>
+export const crearContacto = async (contactoData) =>
   fetch(`${BASE_URL}/${AGENDA_SLUG}/contacts`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -33,12 +33,10 @@ export const actualizarContacto = async (id, dataActualizado) =>
     body: JSON.stringify({ ...dataActualizado, agenda_slug: AGENDA_SLUG })
   }).then(response => {
     if (!response.ok) throw Error("Error al actualizar contacto");
- 
     return response.json();
   });
 
-
-export const eliminarContacto = async id =>
+export const eliminarContacto = async (id) =>
   fetch(`${BASE_URL}/${AGENDA_SLUG}/contacts/${id}`, {
     method: "DELETE"
   }).then(response => {

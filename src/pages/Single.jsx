@@ -10,7 +10,9 @@ export const Single = props => {
 
   // Retrieve the 'theId' URL parameter using useParams hook.
   const { theId } = useParams()
-  const singleTodo = store.todos.find(todo => todo.id === parseInt(theId));
+  const contacto = store.contactos.find(c => c.id === parseInt(theId));
+
+  if (!contacto) return <div className="container text-center"><h1>Contacto no encontrado</h1></div>;
 
   return (
     <div className="container text-center">

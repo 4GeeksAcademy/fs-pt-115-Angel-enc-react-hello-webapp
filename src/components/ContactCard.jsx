@@ -13,7 +13,6 @@ export const ContactCard = ({ contact }) => {
   const handleDelete = async () => {
     try {
       await eliminarContacto(contact.id);
-      //console.log("Contacto eliminado:", contact.id);
       dispatch({ type: "delete_contacto", payload: contact.id });
 
       const updatedContacts = await getContactos();
@@ -24,7 +23,6 @@ export const ContactCard = ({ contact }) => {
   };
   const handleEdit = () => {
     navigate(`/AgregarContacto/${contact.id}`);
-
   };
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
@@ -33,7 +31,7 @@ export const ContactCard = ({ contact }) => {
     <div className="card mb-2 p-2">
       <div className="d-flex justify-content-between align-items-center">
         <h5>{contact.name}</h5>
-        <div className="d-flex gap-2"> {/* Contenedor para los botones */}
+        <div className="d-flex gap-2">
           <button className="btn btn-primary" onClick={handleEdit}>
             <i className="fa-solid fa-pen"></i>
           </button>
